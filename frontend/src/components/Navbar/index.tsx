@@ -31,16 +31,36 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/pacotes">PACOTES</NavLink>
+              <NavLink
+                to="/pacotes"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                PACOTES
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/releases">RELEASES</NavLink>
+              <NavLink
+                to="/releases"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                RELEASES
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/chamados">CHAMADOS</NavLink>
+              <NavLink
+                to="/chamados"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                CHAMADOS
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/usuarios">USUÁRIOS</NavLink>
+              <NavLink
+                to="/usuarios"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                USUÁRIOS
+              </NavLink>
             </li>
           </ul>
         </div>

@@ -30,13 +30,13 @@ const routes = () => {
           <Route path="/pacotes/list" element={<Pacotes />} />
           <Route path="/pacotes" element={<Redirect to="/pacotes/list" />} />
 
-          <Route path="/releases" element={<Releases />} />
+          <Route path="/releases/list" element={<Releases />} />
           <Route path="/releases" element={<Redirect to="/releases/list" />} />
 
-          <Route path="/chamados" element={<Chamados />} />
+          <Route path="/chamados/list" element={<Chamados />} />
           <Route path="/chamados" element={<Redirect to="/chamados/list" />} />
 
-          <Route path="/usuarios" element={<Usuarios />} />
+          <Route path="/usuarios/list" element={<Usuarios />} />
           <Route path="/usuarios" element={<Redirect to="/usuarios/list" />} />
         </Routes>
       </div>
