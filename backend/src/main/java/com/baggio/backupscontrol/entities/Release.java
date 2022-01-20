@@ -2,6 +2,8 @@ package com.baggio.backupscontrol.entities;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -13,6 +15,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -41,10 +44,13 @@ public class Release implements Serializable{
 	@Column(name = "release_status")
 	private ReleaseStatus releaseStatus;
 	
-	@NotNull(message = "Campo obrigatório")
 	@ManyToOne
 	@JoinColumn(name = "package_id")
+	@NotNull(message = "Campo obrigatório")
 	private Package packag;
+	
+	@OneToMany(mappedBy = "release")
+	private List<Call> calls = new ArrayList<>();
 	
 	public Release() {
 	}
@@ -95,6 +101,10 @@ public class Release implements Serializable{
 	
 	public void setPackag(Package packag) {
 		this.packag = packag;
+	}
+	
+	public List<Call> getCalls() {
+		return calls;
 	}
 	
 	@Override
