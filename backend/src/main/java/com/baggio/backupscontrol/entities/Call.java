@@ -44,6 +44,11 @@ public class Call implements Serializable {
 	@NotNull(message = "Campo obrigatório")
 	private Release release;
 
+	@ManyToOne
+	@JoinColumn(name = "client_id")
+	@NotNull(message = "Campo obrigatório")
+	private Client client;
+	
 	@ManyToMany
 	@JoinTable(name = "tb_call_system", joinColumns = @JoinColumn(name = "call_id"), inverseJoinColumns = @JoinColumn(name = "system_id"))
 	Set<System> systems = new HashSet<>();
@@ -52,11 +57,12 @@ public class Call implements Serializable {
 
 	}
 
-	public Call(Long id, Integer number, String linkCentrun, Release release, String summary) {
+	public Call(Long id, Integer number, String linkCentrun, Release release, Client client, String summary) {
 		this.id = id;
 		this.number = number;
 		this.linkCentrun = linkCentrun;
 		this.release = release;
+		this.client = client;
 		this.summary = summary;
 	}
 
@@ -94,6 +100,14 @@ public class Call implements Serializable {
 	
 	public void setRelease(Release release) {
 		this.release = release;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+	
+	public void setClient(Client client) {
+		this.client = client;
 	}
 	
 	public void setSummary(String summary) {
